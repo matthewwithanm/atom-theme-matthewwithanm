@@ -1,0 +1,12 @@
+{
+  "name": "atom-theme-matthewwithanm",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A customized version of Chris Thomas's Mac Classic TextMate theme.",
+  "repository": "https://github.com/matthewwithanm/atom-theme-matthewwithanm",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  }
+}
