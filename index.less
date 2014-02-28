@@ -1,3 +1,10 @@
+.error() {
+  background-color: rgba(255, 0, 0, 0.13);
+}
+.warning() {
+  background-color: rgba(255, 153, 0, 0.2);
+}
+
 .editor, .editor .gutter {
   background-color: #FFFFFF;
   color: #000000;
@@ -115,7 +122,7 @@
 }
 
 .invalid.deprecated.trailing-whitespace {
-  background-color: rgba(255, 0, 0, 0.13);
+  .warning();
 }
 
 .text .source, .string.unquoted {
@@ -174,4 +181,16 @@
 
 .markup.changed {
   color: #d2baff;
+}
+
+.editor .trailing-whitespace {
+  .warning();
+}
+
+.invisible-character {
+  color: rgba(0, 0, 0, 0.15);
+}
+
+.indent-guide {
+  color: rgba(0, 0, 0, 0.15);
 }
