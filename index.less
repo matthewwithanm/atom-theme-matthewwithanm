@@ -1,196 +1,278 @@
-.error() {
-  background-color: rgba(255, 0, 0, 0.13);
-}
-.warning() {
-  background-color: rgba(255, 153, 0, 0.2);
+@import 'syntax-variables';
+
+.editor {
+
+  .trailing-whitespace {
+    .warning();
+  }
+
+  &,
+  .gutter {
+    background-color: @syntax-background-color;
+    color: @syntax-text-color;
+  }
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .gutter{
+    color: @syntax-gutter-text-color;
+    background: @syntax-gutter-background-color;
+  }
+
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: #e87b00;
+  }
+
+  .invisible {
+    color: #555;
+  }
+
+  .selection .region {
+    background-color: #e1e1e1;
+  }
+
+  &.is-focused {
+    .cursor {
+      border-color: @syntax-cursor-color;
+    }
+
+    .selection .region {
+      background-color: @syntax-selection-color;
+    }
+
+    .line-number.cursor-line-no-selection,
+    .line.cursor-line {
+      background-color: @syntax-gutter-background-color-selected;
+      background-color: fade(@gray, 5%);
+    }
+  }
+
+  .comment {
+    color: fade(@gray, 75%);
+    font-style: italic;
+  }
+
+  .string {
+    color: @green;
+  }
+
+  // String interpolation in Ruby, CoffeeScript, and others
+  .source .string {
+    .source,
+    .meta.embedded.line {
+      color: @bright-green;
+    }
+
+    .punctuation.section.embedded {
+      color: @bright-green;
+
+      .source {
+        color: @bright-green;  // Required for the end of embedded strings in Ruby #716
+      }
+    }
+
+  }
+
+  .section.embedded.begin,
+  .section.embedded.end {
+    color: @purple;
+    font-weight: bold;
+  }
+
+  .constant {
+    &.numeric {
+      color: @purple;
+    }
+
+    &.language {
+      color: @purple;
+      font-weight: bold;
+    }
+
+    &.symbol,
+    &.character,
+    &.other {
+      color: @purple;
+    }
+
+    &.placeholder {
+      color: @bright-green;
+    }
+
+    &.numeric.line-number.find-in-files .match {
+      color: rgba(143, 190, 0, 0.63);
+    }
+  }
+
+  .variable {
+    color: @syntax-text-color;
+
+    &.parameter {
+      font-style: italic;
+    }
+
+    &.instance {
+      color: @teal;
+    }
+  }
+
+  // Keywords
+  .keyword {
+    color: @bright-blue;
+    font-weight: bold;
+  }
+
+  .storage {
+    color: @purple;
+    font-weight: bold;
+
+    &.type {
+      color: @purple;
+    }
+  }
+
+  .entity {
+
+    &.name.class {
+      text-decoration: underline;
+    }
+
+    &.other.inherited-class {
+      text-decoration: underline;
+    }
+
+    &.name.function {
+      color: @blue;
+      font-weight: bold;
+    }
+
+    &.name.tag {
+      color: @blue;
+      font-weight: bold;
+    }
+
+    &.other.attribute-name {
+      // CSS class names
+      font-style: italic;
+    }
+
+    &.name.filename.find-in-files {
+      color: #E6DB74;
+    }
+  }
+
+  .support {
+    // &.constant,
+    // &.function,
+    // &.type {
+    //   color: #458;
+    // }
+
+    // &.class {
+    //   color: #008080;
+    // }
+  }
+
+  .invalid {
+    color: #F8F8F0;
+    background-color: #00A8C6;
+
+    &.deprecated {
+      color: #F8F8F0;
+      background-color: #8FBE00;
+    }
+  }
+
+
+  .meta {
+    &.structure.dictionary.json > .string.quoted.double.json,
+    &.structure.dictionary.json > .string.quoted.double.json .punctuation.string {
+      color: @syntax-text-color;
+    }
+
+    &.structure.dictionary.value.json > .string.quoted.double.json {
+      color: @green;
+    }
+
+    &.diff,
+    &.diff.header {
+      color: #75715E;
+    }
+
+    // &.function {
+    //   color: @purple;
+    //   font-weight: bold;
+    // }
+  }
+
+  // CSS Styles
+  .css {
+    &.support.property-name {
+      color: @blue;
+      font-weight: bold;
+    }
+  }
+
+  // Markdown
+  .source.gfm {
+    color: #444;
+  }
+
+  .gfm {
+    .markup.heading {
+      color: #111;
+    }
+
+    & .link {
+      color: #888;
+    }
+
+    .variable.list {
+      color: #888;
+    }
+  }
+
+  .markdown {
+    .paragraph {
+      color: #444;
+    }
+
+    .heading {
+      color: #111;
+    }
+
+    .link {
+      color: #888;
+
+      .string {
+        color: #888;
+      }
+    }
+  }
+
+  .search-results .marker .region {
+    background-color: transparent;
+    border: 1px solid @syntax-result-marker-color;
+  }
+  .search-results .marker.current-result .region {
+    border: 1px solid @syntax-result-marker-color-selected;
+  }
 }
 
-.editor, .editor .gutter {
-  background-color: #FFFFFF;
-  color: #000000;
-}
-
-.editor.is-focused .cursor {
-  border-color: #000000;
-}
-
-.editor.is-focused .selection .region {
-  background-color: rgba(77, 151, 255, 0.33);
-}
-
-.editor.is-focused .line-number.cursor-line-no-selection, .editor.is-focused .line.cursor-line {
-  background-color: rgba(0, 0, 0, 0.07);
-}
-
-.comment {
-  font-style: italic;
-  color: #0066FF;
-}
-
-.keyword, .storage {
-  font-weight: bold;
-  color: #0000FF;
-}
-
-.constant.numeric {
-  color: #0000CD;
-}
-
-.constant {
-  font-weight: bold;
-  color: #C5060B;
-}
-
-.constant.language {
-  font-weight: bold;
-  color: #585CF6;
-}
-
-.variable.language, .variable.other {
-  color: #318495;
-}
-
-.string {
-  color: #036A07;
-}
-
-.constant.character.escape, .string .source {
-  color: #26B31A;
-}
-
-.meta.preprocessor {
-  color: #1A921C;
-}
-
-.keyword.control.import {
-  font-weight: bold;
-  color: #0C450D;
-}
-
-.entity.name.function, .support.function.any-method {
-  font-weight: bold;
-  color: #0000A2;
-}
-
-.entity.name.type {
-  text-decoration: underline;
-}
-
-.entity.other.inherited-class {
-  font-style: italic;
-}
-
-.variable.parameter {
-  font-style: italic;
-}
-
-.storage.type.method {
-  color: #70727E;
-}
-
-.meta.section .entity.name.section, .declaration.section .entity.name.section {
-  font-style: italic;
-}
-
-.support.function {
-  font-weight: bold;
-  color: #3C4C72;
-}
-
-.support.class, .support.type {
-  font-weight: bold;
-  color: #6D79DE;
-}
-
-.support.constant {
-  font-weight: bold;
-  color: #06960E;
-}
-
-.support.variable {
-  font-weight: bold;
-  color: #21439C;
-}
-
-.keyword.operator.js {
-  color: #687687;
-}
-
-.invalid {
-  color: #000000;
-  background-color: rgba(255, 0, 0, 0.13);
-}
-
-.invalid.deprecated.trailing-whitespace {
-  .warning();
-}
-
-.text .source, .string.unquoted {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.text .source .string.unquoted, .text .source .text .source {
-  background-color: rgba(0, 0, 0, 0.06);
-}
-
-.meta.tag.preprocessor.xml {
-  color: #68685B;
-}
-
-.meta.tag.sgml.doctype, .meta.tag.sgml.doctype .entity, .meta.tag.sgml.doctype .string, .meta.tag.preprocessor.xml, .meta.tag.preprocessor.xml .entity, .meta.tag.preprocessor.xml .string {
-  color: #888888;
-}
-
-.string.quoted.docinfo.doctype.DTD {
-  font-style: italic;
-}
-
-.meta.tag, .declaration.tag {
-  color: #1C02FF;
-}
-
-.entity.name.tag {
-  font-weight: bold;
-}
-
-.entity.other.attribute-name {
-  font-style: italic;
-}
-
-.markup.heading {
-  font-weight: bold;
-  color: #0C07FF;
-}
-
-.markup.quote {
-  font-style: italic;
-  color: #000000;
-}
-
-.markup.list {
-  color: #B90690;
-}
-
-.markup.deleted {
-  color: #ee6363;
-}
-
-.markup.inserted {
-  color: #bcf1b9;
-}
-
-.markup.changed {
-  color: #d2baff;
-}
-
-.editor .trailing-whitespace {
-  .warning();
-}
-
-.invisible-character {
-  color: rgba(0, 0, 0, 0.15);
-}
-
-.indent-guide {
-  color: rgba(0, 0, 0, 0.15);
+.bracket-matcher {
+  background-color: #C9C9C9;
+  opacity: 0.7;
+  border-bottom: 0 none;
 }
