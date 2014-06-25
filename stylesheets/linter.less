@@ -1,0 +1,23 @@
+
+.linter-warning:before {
+  color: @orange;
+}
+
+.linter-error:before {
+  color: @red;
+}
+
+.linter-highlight {
+  .region {
+    opacity: 1;
+  }
+
+  &.warning .region {
+    background: @winter-warning-color;
+    border: none;
+  }
+  &.error .region{
+    background: @winter-error-color;
+    border: none;
+  }
+}
