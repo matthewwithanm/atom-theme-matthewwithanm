@@ -12,19 +12,6 @@
 @orange: #FFBD2A;
 @red: #F36F69;
 
-// Use "mix" instead of "fade" so that layers on top of eachother won't result
-// in a darker color.
-@winter-warning-color: transparent;
-@winter-error-color: mix(@red, #fff, 35%);
-
-.error() {
-  background-color: @winter-error-color;
-}
-.warning() {
-  background-color: @winter-warning-color;
-}
-
-
 // General colors
 @syntax-text-color: @black;
 @syntax-cursor-color: black;

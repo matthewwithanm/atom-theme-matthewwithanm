@@ -1,27 +1,28 @@
+.editor,
+atom-text-editor::shadow {
 
-.gutter.linter-gutter-enabled .line-number {
-  &.linter-warning:before {
-    color: @orange;
-  }
+  .gutter.linter-gutter-enabled .line-number {
+    &.linter-warning:before {
+      color: @orange;
+    }
 
-  &.linter-error:before {
-    color: @red;
-  }
-}
-
-.highlight {
-  &.linter-error,
-  &.linter-warning {
-    .region {
-      opacity: 1;
-      border: none;
+    &.linter-error:before {
+      color: @red;
     }
   }
 
-  &.linter-warning .region {
-    background: @winter-warning-color;
+  .linter-highlight.error,
+  .highlight.linter-error {
+    .region {
+      border-color: @red;
+    }
   }
-  &.linter-error .region{
-    background: @winter-error-color;
+
+  .linter-highlight.warning,
+  .highlight.linter-warning {
+    .region {
+      border-color: @orange;
+    }
   }
+
 }

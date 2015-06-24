@@ -4,10 +4,6 @@
 .editor,
 atom-text-editor::shadow {
 
-  .trailing-whitespace {
-    .error();
-  }
-
   &,
   .gutter {
     background-color: @syntax-background-color;
@@ -202,11 +198,6 @@ atom-text-editor::shadow {
     //   color: #008080;
     // }
   }
-
-  .invalid {
-    .error();
-  }
-
 
   .meta {
     &.structure.dictionary.json > .string.quoted.double.json,
