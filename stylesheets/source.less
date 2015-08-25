@@ -29,18 +29,9 @@
     }
   }
 
-  .section.embedded.begin,
-  .section.embedded.end {
-    color: @purple;
-    font-weight: bold;
-  }
-
-  .constant,
-  .variable {
-    color: @bright-blue;
-  }
-
   .constant {
+    color: @bright-blue;
+
     &.rgb-value,
     &.numeric {
       color: @purple;
@@ -62,11 +53,21 @@
   }
 
   .variable {
+    color: @bright-blue;
+
+    &.object {
+      color: @syntax-text-color;
+    }
+
     &.magic,
     &.parameter {
       font-style: italic;
       color: @teal;
       font-weight: normal;
+    }
+
+    &.language {
+      color: @plum;
     }
   }
 
@@ -84,9 +85,15 @@
     color: @plum;
   }
 
-  .import .keyword,
   .storage {
     color: @purple;
+  }
+
+  .module.keyword,
+  .import .keyword,
+  .storage.function {
+    color: @purple;
+    font-weight: bold;
   }
 
   // TODO and FIXME notes
@@ -97,13 +104,9 @@
     }
   }
 
+  .class.name,
   .type.name {
     text-decoration: underline;
-  }
-
-  .function {
-    color: @blue;
-    font-weight: bold;
   }
 
   // Open and close parens, curlies, HTML <s, etc.
@@ -136,18 +139,58 @@
     }
   }
 
+  .jsx {
+    color: @syntax-text-color;
+
+    .operator {
+      color: @plum;
+    }
+  }
+
+  .key {
+    .string {
+      color: @teal;
+    }
+  }
+
+  .function,
+  .method {
+
+    .function.name {
+      color: @blue;
+      font-weight: bold;
+    }
+
+    // Parameters & Default Values
+    .variable {
+      font-weight: normal;
+    }
+
+    // Parameters
+    .storage.variable {
+      color: @teal;
+      font-style: italic;
+    }
+  }
+
+  .function-call {
+    .function.name {
+      color: @blue;
+      font-weight: normal;
+    }
+  }
+
+
   .json {
+    // Keys
     .dictionary > .string {
-      color: @syntax-text-color;
+      color: @teal;
+      font-style: italic;
     }
 
     .dictionary.value > .string {
       color: @green;
-    }
-
-    &.diff,
-    &.diff.header {
-      color: #75715E;
+      font-style: normal;
     }
   }
 
@@ -155,7 +198,7 @@
   .css {
     .attribute-name {
       // Like functions!
-      color: blue;
+      color: @blue;
       font-weight: bold;
     }
 
