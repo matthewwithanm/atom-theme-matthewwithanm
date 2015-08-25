@@ -91,6 +91,7 @@
 
   .module.keyword,
   .import .keyword,
+  .keyword.import, // Python
   .storage.function {
     color: @purple;
     font-weight: bold;
@@ -174,9 +175,11 @@
   }
 
   .function-call {
-    .function.name {
-      color: @blue;
-      font-weight: normal;
+    color: @blue;
+    font-weight: normal;
+
+    .braces {
+      color: @syntax-text-color;
     }
   }
 
