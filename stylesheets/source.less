@@ -41,6 +41,7 @@
   }
 
   .constant {
+    &.rgb-value,
     &.numeric {
       color: @purple;
     }
@@ -58,10 +59,6 @@
     &.placeholder {
       color: @bright-green;
     }
-
-    &.numeric.line-number.find-in-files .match {
-      color: rgba(143, 190, 0, 0.63);
-    }
   }
 
   .variable {
@@ -71,30 +68,25 @@
       color: @teal;
       font-weight: normal;
     }
-
-    &.assignment > .punctuation.separator.key-value {
-      color: @plum;
-    }
-
-    &.less {
-      color: @green;
-    }
   }
 
-  // Keywords
   .keyword {
     color: @plum;
     font-weight: bold;
   }
 
-  .import .keyword,
-  .storage {
-    color: @purple;
+  .separator {
+    color: @plum;
   }
 
   .operator,
   .arrow {
     color: @plum;
+  }
+
+  .import .keyword,
+  .storage {
+    color: @purple;
   }
 
   // TODO and FIXME notes
@@ -112,10 +104,6 @@
   .function {
     color: @blue;
     font-weight: bold;
-  }
-
-  .filename.find-in-files {
-    color: #E6DB74;
   }
 
   // Open and close parens, curlies, HTML <s, etc.
@@ -143,7 +131,6 @@
     }
 
     .attribute-name {
-      // CSS class names
       font-style: italic;
       color: @teal;
     }
@@ -166,9 +153,17 @@
 
   // CSS Styles
   .css {
-    &.support.property-name {
-      color: @blue;
+    .attribute-name {
+      // Like functions!
+      color: blue;
       font-weight: bold;
+    }
+
+    .property-name {
+      // Like arguments!
+      color: @teal;
+      font-weight: normal;
+      font-style: italic;
     }
   }
 
