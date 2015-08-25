@@ -1,0 +1,199 @@
+:host {
+
+  .comment {
+    color: fade(@gray, 75%);
+    font-style: italic;
+  }
+
+  .string {
+    color: @green;
+
+    // String interpolation in Ruby, CoffeeScript, and others
+    .source,
+    .meta.embedded.line,
+    .punctuation.section.embedded {
+      color: @bright-green;
+    }
+  }
+
+  .regexp {
+    &,
+    .constant {
+      &,
+      &.other,
+      &.character-class,
+      &.range,
+      &.regexp {
+        color: @green;
+      }
+    }
+  }
+
+  .section.embedded.begin,
+  .section.embedded.end {
+    color: @purple;
+    font-weight: bold;
+  }
+
+  .constant,
+  .variable {
+    color: @bright-blue;
+  }
+
+  .constant {
+    &.numeric {
+      color: @purple;
+    }
+
+    &.language {
+      color: @plum;
+      font-weight: bold;
+    }
+
+    &.symbol,
+    &.character {
+      color: @purple;
+    }
+
+    &.placeholder {
+      color: @bright-green;
+    }
+
+    &.numeric.line-number.find-in-files .match {
+      color: rgba(143, 190, 0, 0.63);
+    }
+  }
+
+  .variable {
+    &.magic,
+    &.parameter {
+      font-style: italic;
+      color: @teal;
+    }
+
+    &.assignment > .punctuation.separator.key-value {
+      color: @plum;
+    }
+
+    &.less {
+      color: @green;
+    }
+  }
+
+  // Keywords
+  .keyword {
+    color: @plum;
+    font-weight: bold;
+  }
+
+  .operator,
+  .arrow {
+    color: @plum;
+  }
+
+  .import .keyword,
+  .storage {
+    color: @purple;
+  }
+
+  // TODO and FIXME notes
+  .storage {
+    &.fixme,
+    &.todo {
+      color: @red;
+    }
+  }
+
+  .type.name {
+    text-decoration: underline;
+  }
+
+  .function {
+    color: @blue;
+    font-weight: bold;
+  }
+
+  .filename.find-in-files {
+    color: #E6DB74;
+  }
+
+  // Open and close parens, curlies, HTML <s, etc.
+  .begin,
+  .end {
+
+    &,
+    &.tag {
+      color: @syntax-text-color;
+    }
+  }
+
+  // HTML
+  .tag {
+    // So the equals sign will be plum since it doesn't get its own class for
+    // some reason.
+    color: @plum;
+
+    &.name.tag {
+      color: @blue;
+    }
+
+    .curly {
+      color: @syntax-text-color;
+    }
+
+    .attribute-name {
+      // CSS class names
+      font-style: italic;
+      color: @teal;
+    }
+  }
+
+  .json {
+    .dictionary > .string {
+      color: @syntax-text-color;
+    }
+
+    .dictionary.value > .string {
+      color: @green;
+    }
+
+    &.diff,
+    &.diff.header {
+      color: #75715E;
+    }
+  }
+
+  // CSS Styles
+  .css {
+    &.support.property-name {
+      color: @blue;
+      font-weight: bold;
+    }
+  }
+
+  // Markdown
+  .gfm {
+    .heading {
+      color: @blue;
+      font-weight: bold;
+    }
+
+    .link {
+      color: @plum;
+      text-decoration: underline;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .list {
+      color: @bright-blue;
+    }
+  }
+
+}
