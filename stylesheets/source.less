@@ -179,8 +179,12 @@
   }
 
   .function-call {
-    color: @blue;
-    font-weight: normal;
+
+    &,
+    & .function.name {
+      color: @blue;
+      font-weight: normal;
+    }
 
     .braces {
       color: @syntax-text-color;
