@@ -1,11 +1,12 @@
-:host {
+@import './syntax-variables.less';
 
+atom-text-editor,
+:host {
   &,
   .gutter {
     background-color: @syntax-background-color;
     color: @syntax-text-color;
   }
-
 
   .cursor-line {
     .invisible-character {
